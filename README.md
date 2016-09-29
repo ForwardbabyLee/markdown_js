@@ -102,15 +102,15 @@ qita
   > Why? This ensures that you can't reassign your references, which can lead to bugs and difficult to comprehend code.
   > 为什么？这将确保你不能重新分配你的引用，从而导致错误和难以理解的代码。
         
-        ```javascript
-        // bad
-        var a = 1;
-        var b = 2;
-    
-        // good
-        const a = 1;
-        const b = 2;
-        ```
+    ```javascript
+    // bad
+    var a = 1;
+    var b = 2;
+
+    // good
+    const a = 1;
+    const b = 2;
+    ```
 
   <a name="references--disallow-var"></a><a name="2.2"></a>
   - [2.2](#references--disallow-var) If you must reassign references, use `let` instead of `var`. eslint: [`no-var`](http://eslint.org/docs/rules/no-var.html) jscs: [`disallowVar`](http://jscs.info/rule/disallowVar)
@@ -119,19 +119,19 @@ qita
    > Why? `let` is block-scoped rather than function-scoped like `var`.
    > `let`是块范围的，而不是功能范围的像`var`。
 
-    ```javascript
-    // bad
-    var count = 1;
-    if (true) {
-      count += 1;
-    }
-
-    // good, use the let.
-    let count = 1;
-    if (true) {
-      count += 1;
-    }
-    ```
+     ```javascript
+     // bad
+     var count = 1;
+     if (true) {
+       count += 1;
+     }
+ 
+     // good, use the let.
+     let count = 1;
+     if (true) {
+       count += 1;
+     }
+     ```   
 
   <a name="references--block-scope"></a><a name="2.3"></a>
   - [2.3](#references--block-scope) Note that both `let` and `const` are block-scoped.
@@ -167,26 +167,26 @@ qita
   - [3.4](#es6-computed-properties) Use computed property names when creating objects with dynamic property names.
   - 使用计算属性名称创建动态属性名称的对象
   
-  > Why? They allow you to define all the properties of an object in one place.
-  > 他们允许你定义在一个地方一个对象的所有属性。
+   > Why? They allow you to define all the properties of an object in one place.
+   > 他们允许你定义在一个地方一个对象的所有属性。
 
     ```javascript
-
+    
     function getKey(k) {
       return `a key named ${k}`;
     }
-
+    
     // bad
     const obj = {
       id: 5,
       name: 'San Francisco',
     };
     obj[getKey('enabled')] = true;
-
+    
     // good
     const obj = {
       id: 5,
-      name: 'San Francisco',
+      name: 'San Franc  isco',
       [getKey('enabled')]: true,
     };
     ```
@@ -238,10 +238,10 @@ qita
 
   <a name="objects--grouped-shorthand"></a><a name="3.7"></a>
   - [3.7](#objects--grouped-shorthand) Group your shorthand properties at the beginning of your object declaration.
-  - 你的速记属性组(简写)在你的对象声明的开始
+  - 在您的对象声明的开始时就写的速记属组(简写)。
   
- > Why? It's easier to tell which properties are using the shorthand.
- > 它更容易知道哪些属性是使用简写。
+  > Why? It's easier to tell which properties are using the shorthand.
+  > 它更容易知道哪些属性是使用简写。
 
     ```javascript
     const anakinSkywalker = 'Anakin Skywalker';
@@ -333,15 +333,15 @@ qita
   - [4.2](#arrays--push) Use [Array#push](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/push) instead of direct assignment to add items to an array.
   - 使用[数组＃推入（https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/push），而不是直接分配给项目添加到一个数组。
     
-    ```javascript
-    const someStack = [];
+```javascript
+const someStack = [];
 
-    // bad
-    someStack[someStack.length] = 'abracadabra';
+// bad
+someStack[someStack.length] = 'abracadabra';
 
-    // good
-    someStack.push('abracadabra');
-    ```
+// good
+someStack.push('abracadabra');
+```
 
   <a name="es6-array-spreads"></a><a name="4.3"></a>
   - [4.3](#es6-array-spreads) Use array spreads `...` to copy arrays.
@@ -363,7 +363,8 @@ qita
 
   <a name="arrays--from"></a><a name="4.4"></a>
   - [4.4](#arrays--from) To convert an array-like object to an array, use [Array.from](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from).
-
+  - 转换一个类似数组的对象数组，使用[Array.from]（https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from）
+  
     ```javascript
     const foo = document.querySelectorAll('.foo');
     const nodes = Array.from(foo);
@@ -371,6 +372,7 @@ qita
 
   <a name="arrays--callback-return"></a><a name="4.5"></a>
   - [4.5](#arrays--callback-return) Use return statements in array method callbacks. It's ok to omit the return if the function body consists of a single statement following [8.2](#8.2). eslint: [`array-callback-return`](http://eslint.org/docs/rules/array-callback-return)
+  - 使用数组方法回调return语句。这是确定省略返回如果函数体内以下[8.2]（＃8.2）由单个语句。eslint：[`阵列回调return`（http://eslint.org/docs/rules/array-callback-return）
 
     ```javascript
     // good
