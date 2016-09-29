@@ -99,24 +99,25 @@ qita
   - [2.1](#references--prefer-const) Use `const` for all of your references; avoid using `var`. eslint: [`prefer-const`](http://eslint.org/docs/rules/prefer-const.html), [`no-const-assign`](http://eslint.org/docs/rules/no-const-assign.html)
   - 使用` const `,代替使用` var `,来声明常量
   
-    > Why? This ensures that you can't reassign your references, which can lead to bugs and difficult to comprehend code.
-      为什么？这将确保你不能重新分配你的引用，从而导致错误和难以理解的代码。
+  > Why? This ensures that you can't reassign your references, which can lead to bugs and difficult to comprehend code.
+  > 为什么？这将确保你不能重新分配你的引用，从而导致错误和难以理解的代码。
+        
+        ```javascript
+        // bad
+        var a = 1;
+        var b = 2;
     
-    ```javascript
-    // bad
-    var a = 1;
-    var b = 2;
-
-    // good
-    const a = 1;
-    const b = 2;
-    ```
+        // good
+        const a = 1;
+        const b = 2;
+        ```
 
   <a name="references--disallow-var"></a><a name="2.2"></a>
   - [2.2](#references--disallow-var) If you must reassign references, use `let` instead of `var`. eslint: [`no-var`](http://eslint.org/docs/rules/no-var.html) jscs: [`disallowVar`](http://jscs.info/rule/disallowVar)
   - 如果参数被重新使用，让用` let` 代替` Var`
   
-    > Why? `let` is block-scoped rather than function-scoped like `var`.
+   > Why? `let` is block-scoped rather than function-scoped like `var`.
+   > `let`是块范围的，而不是功能范围的像`var`。
 
     ```javascript
     // bad
@@ -166,7 +167,8 @@ qita
   - [3.4](#es6-computed-properties) Use computed property names when creating objects with dynamic property names.
   - 使用计算属性名称创建动态属性名称的对象
   
-    > Why? They allow you to define all the properties of an object in one place.
+  > Why? They allow you to define all the properties of an object in one place.
+  > 他们允许你定义在一个地方一个对象的所有属性。
 
     ```javascript
 
@@ -217,7 +219,8 @@ qita
   - [3.6](#es6-object-concise) Use property value shorthand. eslint: [`object-shorthand`](http://eslint.org/docs/rules/object-shorthand.html) jscs: [`requireEnhancedObjectLiterals`](http://jscs.info/rule/requireEnhancedObjectLiterals)
   - 使用属性值简写.eslint: [`对象简写`](http://eslint.org/docs/rules/object-shorthand.html) jscs: [`requireEnhancedObjectLiterals`](http://jscs.info/rule/requireEnhancedObjectLiterals)
 
-    > Why? It is shorter to write and descriptive.
+   > Why? It is shorter to write and descriptive.  
+   > 这是更短的编写和描述。
 
     ```javascript
     const lukeSkywalker = 'Luke Skywalker';
@@ -235,8 +238,10 @@ qita
 
   <a name="objects--grouped-shorthand"></a><a name="3.7"></a>
   - [3.7](#objects--grouped-shorthand) Group your shorthand properties at the beginning of your object declaration.
-
-    > Why? It's easier to tell which properties are using the shorthand.
+  - 你的速记属性组(简写)在你的对象声明的开始
+  
+ > Why? It's easier to tell which properties are using the shorthand.
+ > 它更容易知道哪些属性是使用简写。
 
     ```javascript
     const anakinSkywalker = 'Anakin Skywalker';
@@ -265,44 +270,48 @@ qita
 
   <a name="objects--quoted-props"></a><a name="3.8"></a>
   - [3.8](#objects--quoted-props) Only quote properties that are invalid identifiers. eslint: [`quote-props`](http://eslint.org/docs/rules/quote-props.html) jscs: [`disallowQuotedKeysInObjects`](http://jscs.info/rule/disallowQuotedKeysInObjects)
-
+  - 只有引用是无效的标识符属性。eslint：报价道具JSCS：禁止QuotedKeysInObjects
+  
   > Why? In general we consider it subjectively easier to read. It improves syntax highlighting, and is also more easily optimized by many JS engines.
-
-  ```javascript
-  // bad
-  const bad = {
-    'foo': 3,
-    'bar': 4,
-    'data-blah': 5,
-  };
-
-  // good
-  const good = {
-    foo: 3,
-    bar: 4,
-    'data-blah': 5,
-  };
-  ```
+  > 总的来说，我们认为这是主观上更容易阅读。它提高了语法高亮，并且也更容易被JS很多优化的引擎。
+ 
+      ```javascript
+      // bad
+      const bad = {
+        'foo': 3,
+        'bar': 4,
+        'data-blah': 5,
+      };
+    
+      // good
+      const good = {
+        foo: 3,
+        bar: 4,
+        'data-blah': 5,
+      };
+      ```
 
   <a name="objects--prototype-builtins"></a>
   - [3.9](#objects--prototype-builtins) Do not call `Object.prototype` methods directly, such as `hasOwnProperty`, `propertyIsEnumerable`, and `isPrototypeOf`.
-
+  - 不要直接调用的Object.prototype方法，如的hasOwnProperty，propertyIsEnumerable和isPrototypeOf。
+  
   > Why? These methods may be shadowed by properties on the object in question - consider `{ hasOwnProperty: false }` - or, the object may be a null object (`Object.create(null)`).
+  > 这些方法可以通过属性的对象上有问题被隐藏 - 考虑`{的hasOwnProperty：假}` - 或者，对象可能是一个空对象（`的Object.create（空）`）。
 
-  ```javascript
-  // bad
-  console.log(object.hasOwnProperty(key));
-
-  // good
-  console.log(Object.prototype.hasOwnProperty.call(object, key));
-
-  // best
-  const has = Object.prototype.hasOwnProperty; // cache the lookup once, in module scope.
-  /* or */
-  const has = require('has');
-  …
-  console.log(has.call(object, key));
-  ```
+      ```javascript
+      // bad
+      console.log(object.hasOwnProperty(key));
+    
+      // good
+      console.log(Object.prototype.hasOwnProperty.call(object, key));
+    
+      // best
+      const has = Object.prototype.hasOwnProperty; // cache the lookup once, in module scope.
+      /* or */
+      const has = require('has');
+      …
+      console.log(has.call(object, key));
+      ```
 
 **[⬆ back to top](#table-of-contents)**
 
@@ -310,6 +319,7 @@ qita
 
   <a name="arrays--literals"></a><a name="4.1"></a>
   - [4.1](#arrays--literals) Use the literal syntax for array creation. eslint: [`no-array-constructor`](http://eslint.org/docs/rules/no-array-constructor.html)
+  - 使用数组创建文字语法。eslint：[`无阵列constructor`（http://eslint.org/docs/rules/no-array-constructor.html）
 
     ```javascript
     // bad
@@ -321,7 +331,8 @@ qita
 
   <a name="arrays--push"></a><a name="4.2"></a>
   - [4.2](#arrays--push) Use [Array#push](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/push) instead of direct assignment to add items to an array.
-
+  - 使用[数组＃推入（https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/push），而不是直接分配给项目添加到一个数组。
+    
     ```javascript
     const someStack = [];
 
@@ -334,7 +345,8 @@ qita
 
   <a name="es6-array-spreads"></a><a name="4.3"></a>
   - [4.3](#es6-array-spreads) Use array spreads `...` to copy arrays.
-
+  - 使用阵列蔓延`...`复制阵列..
+  
     ```javascript
     // bad
     const len = items.length;
