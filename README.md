@@ -910,9 +910,11 @@ qita
 
   <a name="arrows--paren-wrap"></a><a name="8.3"></a>
   - [8.3](#arrows--paren-wrap) In case the expression spans over multiple lines, wrap it in parentheses for better readability.
+  - 如果表达式跨越多行，把它包在括号中为更好的可读性。
 
-    > Why? It shows clearly where the function starts and ends.
-
+   > Why? It shows clearly where the function starts and ends.
+   > 因为它清楚地显示出了功能的开始和结束。
+   
     ```js
     // bad
     ['get', 'post', 'put'].map(httpMethod => Object.prototype.hasOwnProperty.call(
@@ -932,9 +934,11 @@ qita
 
   <a name="arrows--one-arg-parens"></a><a name="8.4"></a>
   - [8.4](#arrows--one-arg-parens) If your function takes a single argument and doesn’t use braces, omit the parentheses. Otherwise, always include parentheses around arguments. eslint: [`arrow-parens`](http://eslint.org/docs/rules/arrow-parens.html) jscs:  [`disallowParenthesesAroundArrowParam`](http://jscs.info/rule/disallowParenthesesAroundArrowParam)
-
-    > Why? Less visual clutter.
-
+  - 如果你的函数只有一个参数，并且不使用大括号，省略括号。否则，参数左右括号都是需要的。
+   
+   > Why? Less visual clutter.
+   > 减少视觉混乱。
+   
     ```js
     // bad
     [1, 2, 3].map((x) => x * x);
@@ -962,7 +966,8 @@ qita
 
   <a name="arrows--confusing"></a><a name="8.5"></a>
   - [8.5](#arrows--confusing) Avoid confusing arrow function syntax (`=>`) with comparison operators (`<=`, `>=`). eslint: [`no-confusing-arrow`](http://eslint.org/docs/rules/no-confusing-arrow)
-
+  - 避免混乱箭函数语法（`=>`）与比较运算符（`<=`，`>=`）eslint：[`没有混乱-arrow`（http://eslint.org/docs/rules/no-confusing-arrow）
+  
     ```js
     // bad
     const itemHeight = item => item.height > 256 ? item.largeSize : item.smallSize;
@@ -987,8 +992,10 @@ qita
 
   <a name="constructors--use-class"></a><a name="9.1"></a>
   - [9.1](#constructors--use-class) Always use `class`. Avoid manipulating `prototype` directly.
-
-    > Why? `class` syntax is more concise and easier to reason about.
+  - 总是使用的类。避免直接操纵原型。
+  
+   > Why? `class` syntax is more concise and easier to reason about.
+   > 类的语法更简洁，更容易推理。
 
     ```javascript
     // bad
@@ -1017,9 +1024,11 @@ qita
 
   <a name="constructors--extends"></a><a name="9.2"></a>
   - [9.2](#constructors--extends) Use `extends` for inheritance.
-
-    > Why? It is a built-in way to inherit prototype functionality without breaking `instanceof`.
-
+  - 使用扩展的继承。
+  
+   > Why? It is a built-in way to inherit prototype functionality without breaking `instanceof`.
+   > 它是一个内置的方式来继承原型的功能没有打破`实例`。
+   
     ```javascript
     // bad
     const inherits = require('inherits');
@@ -1041,7 +1050,8 @@ qita
 
   <a name="constructors--chaining"></a><a name="9.3"></a>
   - [9.3](#constructors--chaining) Methods can return `this` to help with method chaining.
-
+  - 方法可以返回`this`帮助方法链接。
+  
     ```javascript
     // bad
     Jedi.prototype.jump = function () {
@@ -1079,7 +1089,8 @@ qita
 
   <a name="constructors--tostring"></a><a name="9.4"></a>
   - [9.4](#constructors--tostring) It's okay to write a custom toString() method, just make sure it works successfully and causes no side effects.
-
+  - 这是写一个自定义tostring()方法好，只要确保它成功的、无副作用。
+  
     ```javascript
     class Jedi {
       constructor(options = {}) {
@@ -1098,7 +1109,8 @@ qita
 
   <a name="constructors--no-useless"></a><a name="9.5"></a>
   - [9.5](#constructors--no-useless) Classes have a default constructor if one is not specified. An empty constructor function or one that just delegates to a parent class is unnecessary. eslint: [`no-useless-constructor`](http://eslint.org/docs/rules/no-useless-constructor)
-
+  - 类有一个默认的构造函数，如果没有指定一个。一个空的构造函数或者一个仅委托给父类是不必要的。
+  
     ```javascript
     // bad
     class Jedi {
@@ -1127,9 +1139,11 @@ qita
 
   <a name="classes--no-duplicate-members"></a>
   - [9.6](#classes--no-duplicate-members) Avoid duplicate class members. eslint: [`no-dupe-class-members`](http://eslint.org/docs/rules/no-dupe-class-members)
-
-    > Why? Duplicate class member declarations will silently prefer the last one - having duplicates is almost certainly a bug.
-
+  - 避免重复类成员。
+  
+   > Why? Duplicate class member declarations will silently prefer the last one - having duplicates is almost certainly a bug.
+   > 重复类成员声明将默认最后一个 - 有重复类几乎可以肯定是一个错误。
+   
     ```javascript
     // bad
     class Foo {
@@ -1156,9 +1170,11 @@ qita
 
   <a name="modules--use-them"></a><a name="10.1"></a>
   - [10.1](#modules--use-them) Always use modules (`import`/`export`) over a non-standard module system. You can always transpile to your preferred module system.
-
-    > Why? Modules are the future, let's start using the future now.
-
+  - 在一个非标准的模块系统中，总是使用模块（输入/导出）。你总是可以transpile首选模块系统。
+  
+   > Why? Modules are the future, let's start using the future now.
+   > 模块是未来，让我们开始使用现在的未来。
+   
     ```javascript
     // bad
     const AirbnbStyleGuide = require('./AirbnbStyleGuide');
@@ -1175,9 +1191,11 @@ qita
 
   <a name="modules--no-wildcard"></a><a name="10.2"></a>
   - [10.2](#modules--no-wildcard) Do not use wildcard imports.
-
-    > Why? This makes sure you have a single default export.
-
+  - 不使用通配符的输入.
+  
+   > Why? This makes sure you have a single default export.
+   > 这可以确保你有一个默认的输出.
+   
     ```javascript
     // bad
     import * as AirbnbStyleGuide from './AirbnbStyleGuide';
@@ -1188,9 +1206,11 @@ qita
 
   <a name="modules--no-export-from-import"></a><a name="10.3"></a>
   - [10.3](#modules--no-export-from-import) And do not export directly from an import.
-
-    > Why? Although the one-liner is concise, having one clear way to import and one clear way to export makes things consistent.
-
+  - 不要直接从输入地方输出
+  
+   > Why? Although the one-liner is concise, having one clear way to import and one clear way to export makes things consistent.
+   > 虽然一行程序简洁,有一个明显的方式输入和输出一个明显的方法使事情一致。
+   
     ```javascript
     // bad
     // filename es6.js
@@ -1203,9 +1223,11 @@ qita
     ```
 
   <a name="modules--no-duplicate-imports"></a>
-  - [10.4](#modules--no-duplicate-imports) Only import from a path in one place.
- eslint: [`no-duplicate-imports`](http://eslint.org/docs/rules/no-duplicate-imports)
-    > Why? Having multiple lines that import from the same path can make code harder to maintain.
+  - [10.4](#modules--no-duplicate-imports) Only import from a path in one place. eslint: [`no-duplicate-imports`](http://eslint.org/docs/rules/no-duplicate-imports)
+  - 只在一个地方用一个输入. eslint: [`no-duplicate-imports`](http://eslint.org/docs/rules/no-duplicate-imports)
+ 
+   > Why? Having multiple lines that import from the same path can make code harder to maintain.
+   > 为什么?有多个输入相同的路径可以使代码难以维护。
 
     ```javascript
     // bad
@@ -1224,10 +1246,12 @@ qita
     ```
 
   <a name="modules--no-mutable-exports"></a>
-  - [10.5](#modules--no-mutable-exports) Do not export mutable bindings.
- eslint: [`import/no-mutable-exports`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-mutable-exports.md)
-    > Why? Mutation should be avoided in general, but in particular when exporting mutable bindings. While this technique may be needed for some special cases, in general, only constant references should be exported.
-
+  - [10.5](#modules--no-mutable-exports) Do not export mutable bindings.eslint: [`import/no-mutable-exports`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-mutable-exports.md)                                                                       
+  - 不要输出多个绑定。eslint: [`import/no-mutable-exports`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-mutable-exports.md)
+    
+   > Why? Mutation should be avoided in general, but in particular when exporting mutable bindings. While this technique may be needed for some special cases, in general, only constant references should be exported.
+   > 突变应该避免一般，但特别是当导出可变绑定。虽然这种技术可能是必要的一些特殊的情况下，在一般情况下，唯一的常数的引用应该被导出。
+   
     ```javascript
     // bad
     let foo = 3;
