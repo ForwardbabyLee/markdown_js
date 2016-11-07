@@ -1263,8 +1263,8 @@ qita
     ```
 
   <a name="modules--prefer-default-export"></a>
-  - [10.6](#modules--prefer-default-export) In modules with a single export, prefer default export over named export.
- eslint: [`import/prefer-default-export`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/prefer-default-export.md)
+  - [10.6](#modules--prefer-default-export) In modules with a single export, prefer default export over named export.eslint: [`import/prefer-default-export`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/prefer-default-export.md)                                                                                                                   
+  - 在单个的输出模块，喜欢把默认的输出叫输出。eslint: [`import/prefer-default-export`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/prefer-default-export.md)
 
     ```javascript
     // bad
@@ -1275,9 +1275,11 @@ qita
     ```
 
   <a name="modules--imports-first"></a>
-  - [10.7](#modules--imports-first) Put all `import`s above non-import statements.
- eslint: [`import/imports-first`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/imports-first.md)
-    > Why? Since `import`s are hoisted, keeping them all at the top prevents surprising behavior.
+  - [10.7](#modules--imports-first) Put all `import`s above non-import statements. eslint: [`import/imports-first`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/imports-first.md)
+  - 把所有的`import` 放在non-import语句之前. eslint: [`import/imports-first`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/imports-first.md)
+   
+   > Why? Since `import`s are hoisted, keeping them all at the top prevents surprising behavior.
+   > 由于“import”是提起的，防止他们所有的顶部出现意外的行为。
 
     ```javascript
     // bad
@@ -1299,10 +1301,13 @@ qita
 
   <a name="iterators--nope"></a><a name="11.1"></a>
   - [11.1](#iterators--nope) Don't use iterators. Prefer JavaScript's higher-order functions instead of loops like `for-in` or `for-of`. eslint: [`no-iterator`](http://eslint.org/docs/rules/no-iterator.html) [`no-restricted-syntax`](http://eslint.org/docs/rules/no-restricted-syntax)
+  - [11.1](#iterators--nope) Don't use iterators. Prefer JavaScript's higher-order functions instead of loops like `for-in` or `for-of`. eslint: [`no-iterator`](http://eslint.org/docs/rules/no-iterator.html) [`no-restricted-syntax`](http://eslint.org/docs/rules/no-restricted-syntax)
 
-    > Why? This enforces our immutable rule. Dealing with pure functions that return values is easier to reason about than side effects.
+   > Why? This enforces our immutable rule. Dealing with pure functions that return values is easier to reason about than side effects.
+   > This enforces our immutable rule. Dealing with pure functions that return values is easier to reason about than side effects.
 
-    > Use `map()` / `every()` / `filter()` / `find()` / `findIndex()` / `reduce()` / `some()` / ... to iterate over arrays, and `Object.keys()` / `Object.values()` / `Object.entries()` to produce arrays so you can iterate over objects.
+   > Use `map()` / `every()` / `filter()` / `find()` / `findIndex()` / `reduce()` / `some()` / ... to iterate over arrays, and `Object.keys()` / `Object.values()` / `Object.entries()` to produce arrays so you can iterate over objects.
+   > 用 `map()` / `every()` / `filter()` / `find()` / `findIndex()` / `reduce()` / `some()` / ... 去遍历数组, 和 `Object.keys()` / `Object.values()` / `Object.entries()` 所以你可以产生数组遍历对象.
 
     ```javascript
     const numbers = [1, 2, 3, 4, 5];
